@@ -1,9 +1,0 @@
-GET http://localhost:5000/addMovie
-User-Agent: IntelliJ HTTP Client/PyCharm 2025.2.0.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-<> 2025-12-13T091915.200.html
-
-###
-
