@@ -24,12 +24,19 @@
             <div class="column">
                 <a href="addMovie">Dodaj film</a>
                 <h3><i class="fa-solid fa-film"></i> Titles</h3>
-                <ul id="moviesList">
+                <form id="moviesList" method="POST" action="/deleteMovies">
+                    <ul style="list-style-type: none; padding: 0;">
                     {% for movie in movies %}
-                        <li>{{ movie[1] }}, {{ movie[2] }}, {{ movie[3] }}</li>
+                       <li>
+                            <label>
+                                <input type="checkbox" name="movieToRemove" value="{{ movie[0] }}">
+                                {{ movie[1] }}, {{ movie[2] }}, {{ movie[3] }}
+                            </label>
+                        </li>
                     {% endfor %}
                 </ul>
-                <button>Delete selected</button>
+                    <button name="button" type="submit"><i class="fa-solid fa-circle-minus"></i> Delete selected</button>
+                </form>
             </div>
         </div>
 </main>

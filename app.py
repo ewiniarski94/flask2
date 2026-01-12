@@ -27,6 +27,19 @@ def add_movie():
         return redirect(url_for('home'))
     return render_template('add.html')
 
+@app.route('/deleteMovies', methods=['POST'])
+def delete_movies():
+    
+    ids = request.form.getlist('movieToRemove')
+    if ids:
+        db = sqlite3.connect('movies.db')
+        cursor = db.cursor()
+        placeholders = ','.join('?' for _ in ids)
+        query = f"DELETE FROM movies WHERE id IN ({placeholders})"
+        cursor.execute(query, ids)
+        db.commit()
+        db.close()
+    return redirect(url_for('home'))
 
 if __name__ == '__main__':
-    app.run()
+     app.run()
